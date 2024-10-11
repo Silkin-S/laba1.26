@@ -1,15 +1,44 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.io.PrintStream;
+import java.util.Scanner;
 public class Main {
+    public static Scanner in = new Scanner(System.in);
+    public static PrintStream out = System.out;
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        double a = in.nextDouble();
+        double b = in.nextDouble();
+        if (b == 0){
+            out.println("Решений нет");
+        }
+        else if (b > 0){
+            if(a > 0){
+                out.print("x<=");
+                out.print(-a);
+                out.print(" or ");
+                out.print("x>=0");
+            }
+            else if(a == 0){
+                out.println("x - любой");
+            }
+            else{
+                out.print("x<=0");
+                out.print(" or ");
+                out.print("x>=");
+                out.print(-a);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            }
+        }
+        else {
+            if (a > 0){
+                out.print(-a);
+                out.print("<=x<=0");
+            }
+            else if (a == 0){
+                out.println("x=0");
+            }
+            else{
+                out.print("0<=x<=");
+                out.print(-a);
+            }
         }
     }
 }
